@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <h1>This is the exact search page.</h1>
+    <h1>Your exact search result... </h1>
 
-     //TODO add home search bar here
+     //TODO add home search bar here for new search
 
     <container>
         <div class="card" style="width: 18rem;">
