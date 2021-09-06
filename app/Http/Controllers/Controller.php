@@ -11,7 +11,8 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function search() {
-        return 'search';
+    public function index()
+    {
+        return view('welcome');
     }
 }
