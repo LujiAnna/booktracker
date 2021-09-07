@@ -17,7 +17,4 @@ class HomeController extends Controller
 
     }
 
-    public function search() {
-        return 'search';
-    }
 }
