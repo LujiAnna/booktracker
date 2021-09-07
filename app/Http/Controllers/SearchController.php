@@ -33,6 +33,7 @@ class SearchController extends Controller
         $input = $request->input("name");
         // dd($input);
         if(!$input) { 
+            // try to store in the database
             $googleBooks = Http::get('https://www.googleapis.com/books/v1/volumes?q=' . $input . '&key=' . config('services.google.key'));
             // !!!
             return view('search')->with('name', $googleBooks);
