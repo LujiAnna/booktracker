@@ -44,12 +44,21 @@ class SearchController extends Controller
             // dd("https://www.googleapis.com/books/v1/volumes?q=".$input."&key=".config('services.google.key'));
 
             if($res->getStatusCode() == 200){
-                $res->getBody();
+                // $res->getBody();
                 // dd((string)$res->getBody());
-                dd(json_decode($res->getBody()->getContents()));
+                // dd(json_decode($res->getBody()->getContents()));
+                $bookload = json_decode($res->getBody()->getContents());
+                // dd($bookload->items);
+                $bookitems = $bookload->items;
+            //    dd($bookitems);
+               foreach ($bookitems as $item) {
+                //    go through all items in an array
+                $item->volumeInfo;
+                $title = $item->volumeInfo->title;
+               }
             }
-
-            return view('search')->with('name', $googleBooks);
+            // dd($title);
+            return view('search')->with('submitSearch');
         } else {
             return view('search');
         }
