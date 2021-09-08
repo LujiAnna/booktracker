@@ -5,9 +5,9 @@
 
      //TODO add home search bar here for new search
 
-    <container>
+    <div class="container">
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="#" class="card-img-top" alt="...">
             <div class="card-body">
 
                 <h5 class="card-title">Book title</h5>
@@ -20,9 +20,12 @@
                 <a href="#" class="btn btn-primary">See all books from this author</a>
                 <a href="#" class="btn btn-primary">See all books from this genre</a>
 
+                <a href="#" class="btn btn-primary">Add book to my list</a>
+
+
             </div>
         </div>
-    </container>
+    </div>
 
     // TODO go back home button
 
