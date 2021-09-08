@@ -24,13 +24,15 @@ class SearchController extends Controller
      */
 
 
-    public function show() {
-        
-            return view('search');
+    public function list(Request $request) {
+        $bookitems = Http::get("https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=".config('services.google.key'))->json();
+        return view('search') ->with('bookitems', json_decode($bookitems, true));
     }
 
     public function submitSearch(Request $request)
     {
+
+        // dd($bookitems);
         // dd($request); 
         // dd(request('search'));
         $input = request('search');
@@ -50,12 +52,12 @@ class SearchController extends Controller
                 $bookload = json_decode((string)$res->getBody()->getContents());
                 // dd($bookload->items);
                 $bookitems = $bookload->items;
-            //    dd($bookitems);
+            //    dd($bookitems[0]->volumeInfo);
             }
             // dd($title);
             return view('search', ['bookitems' => $bookitems]);
         } else {
             return view('search');
         }
-            }
+    }
 }
