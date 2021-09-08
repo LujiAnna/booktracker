@@ -14,6 +14,7 @@ Route::get('home', [HomeController::class, 'index'])->name('home');
 
 Route::get('search', [SearchController::class, 'show'])->name('search');
 
+
 // add slug and name with 2 variables
 // Route::get('search', [SearchController::class, 'submitSearch']);
 
