@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
+use GuzzleHttp\Client;
+
 class SearchController extends Controller
 {
 
@@ -29,14 +31,34 @@ class SearchController extends Controller
 
     public function submitSearch(Request $request)
     {
-        // dd($request);
-        $input = $request->input("name");
+        // dd($request); 
+        // dd(request('search'));
+        $input = request('search');
         // dd($input);
-        if(!$input) { 
+        if($input) { 
+
             // try to store in the database
-            $googleBooks = Http::get('https://www.googleapis.com/books/v1/volumes?q=' . $input . '&key=' . config('services.google.key'));
-            // !!!
-            return view('search')->with('name', $googleBooks);
+            $client = new Client();
+            $res = $client->request('GET', "https://www.googleapis.com/books/v1/volumes?q=".$input."&key=".config('services.google.key'));
+            // dd($res);
+            // dd("https://www.googleapis.com/books/v1/volumes?q=".$input."&key=".config('services.google.key'));
+
+            if($res->getStatusCode() == 200){
+                // $res->getBody();
+                // dd((string)$res->getBody());
+                // dd(json_decode($res->getBody()->getContents()));
+                $bookload = json_decode($res->getBody()->getContents());
+                // dd($bookload->items);
+                $bookitems = $bookload->items;
+            //    dd($bookitems);
+               foreach ($bookitems as $item) {
+                //    go through all items in an array
+                $item->volumeInfo;
+                $title = $item->volumeInfo->title;
+               }
+            }
+            // dd($title);
+            return view('search')->with('submitSearch');
         } else {
             return view('search');
         }
