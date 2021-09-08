@@ -6,7 +6,6 @@
      style="background-image: url(https://mdbootstrap.com/img/Photos/new-templates/search-box/img6.jpg); ">
     <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0,.43);">
         <div class="container" style="margin: 100px auto 100px auto">
-{{--            <div class="row">--}}
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                     <div class="card mb-2">
                         <div class="card-body p-2">
@@ -14,8 +13,7 @@
                                 <input type="text" class="form-control form-control-lg rounded"
                                        placeholder="Search for your favourite book..."
                                        aria-label="Type Keywords" aria-describedby="basic-addon2"/>
-                                <span class="input-group-text border-0" id="basic-addon2"><i
-                                        class="fas fa-search"></i></span>
+                                <span class="input-group-text border-0" id="basic-addon2"><i class="fas fa-search"></i></span>
                             </div>
                         </div>
                     </div>
@@ -88,7 +86,6 @@
                         </div>
                     </div>
                 </div>
-{{--            </div>--}}
         </div>
     </div>
 </div>
