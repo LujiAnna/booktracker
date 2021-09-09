@@ -18,7 +18,7 @@
       body {
         font-family: 'Nunito', sans-serif;
             }
-            /* Style the accordion panel. Note: hidden by default */
+            /* Style the accordion panel for book description. Note: hidden by default */
       .panel {
         display: none;
         overflow: hidden;

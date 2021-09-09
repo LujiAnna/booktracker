@@ -7,7 +7,7 @@
             <h1 class="mb-3">Search</h1>
             {{-- action: route to go to controller --}}
               <form class="jumbotron" method="get" action='search'>
-                 {{-- @csrf --}}
+                 @csrf
                 <div class="input-group mb-3">
                 {{-- type='search' vs type='text' --}}
                   <input class="form-control me-2" type="search" name='search' id="search" placeholder="Search by Book Title, Author, or ISBN" aria-label="Search" value="{{request('search')}}" required>
@@ -46,8 +46,8 @@
     @foreach ($bookitems as $item)
     {{-- {{ $item->volumeInfo->title }} --}}
 
-    {{-- Book not found --}}
-      @if ($item->volumeInfo->title == null && $item->volumeInfo->author[0])
+    {{-- Book not found: modify this logic --}}
+      @if ($item->volumeInfo->title == null && $item->volumeInfo->author[0] && $item->volumeInfo->imageLinks->thumbnail == null)
         <h2>Book not found</h2>
         @break
       @endif
