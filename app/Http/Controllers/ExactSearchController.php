@@ -12,23 +12,26 @@ class ExactSearchController extends Controller
         return view('exactsearch');
     }
 
+    public function list (Request $request)
+    {
+        $bookitems = Http::get("https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=".config('services.google.key'))->json();
+        return view('exactsearch') ->with('bookitems', json_decode($bookitems, true));
+    }
 
-    //TODO verify code here
+
     public function submitSearch(Request $request)
     {
         $input = request('exactsearch');
         if ($input) {
             $client = new Client();
-            $googleBooks = Http::get('https://www.googleapis.com/books/v1/volumes?q=' . $input . '&key=' . config('services.google.key'));
-
             $res = $client->request('GET', "https://www.googleapis.com/books/v1/volumes?q=" . $input . "&key=" . config('services.google.key'));
 
             if ($res->getStatusCode() == 200) {
-                $res->getBody();
-                dd(json_decode($res->getBody()->getContents()));
+                $bookload = json_decode((string)$res->getBody()->getContents());
+                $bookitems = $bookload->items;
             }
 
-            return view('exactsearch')->with('name', $googleBooks);
+            return view('exactsearch', ['bookitems' => $bookitems]);
         } else {
             return view('exactsearch');
         }
