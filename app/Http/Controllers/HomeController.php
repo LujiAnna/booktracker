@@ -12,9 +12,7 @@ class HomeController extends Controller
 
     }
 
-    public function show()
-    {
-
+    public function search() {
+        return 'search';
     }
-
 }
