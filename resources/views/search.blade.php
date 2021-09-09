@@ -62,9 +62,9 @@
               <a href="{{ $item->volumeInfo->infoLink }}"><img src="{{ $item->volumeInfo->imageLinks->smallThumbnail }}" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
               </a>
                <i class="fas fa-plus-circle text-white accordion" type="button"></i>
-                {{-- <small>Authored by </span></small> --}}
                     <div class="panel">
                     {{-- <div class="card card-body"> --}}
+                    {{-- TODO: Add short description or add book to personal list --}}
                     <p>Lorem Ipsum ..</p>
                       {{-- <small>{{ $item->volumeInfo->description }} <small> --}}
                     {{-- </div> --}}
