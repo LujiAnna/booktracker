@@ -24,13 +24,15 @@ class SearchController extends Controller
      */
 
 
-    public function show() {
-        // make an API request in PHP
-        return view('search');
+    public function list(Request $request) {
+        $bookitems = Http::get("https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=".config('services.google.key'))->json();
+        return view('search') ->with('bookitems', json_decode($bookitems, true));
     }
 
     public function submitSearch(Request $request)
     {
+
+        // dd($bookitems);
         // dd($request); 
         // dd(request('search'));
         $input = request('search');
@@ -47,20 +49,15 @@ class SearchController extends Controller
                 // $res->getBody();
                 // dd((string)$res->getBody());
                 // dd(json_decode($res->getBody()->getContents()));
-                $bookload = json_decode($res->getBody()->getContents());
+                $bookload = json_decode((string)$res->getBody()->getContents());
                 // dd($bookload->items);
                 $bookitems = $bookload->items;
-            //    dd($bookitems);
-               foreach ($bookitems as $item) {
-                //    go through all items in an array
-                $item->volumeInfo;
-                $title = $item->volumeInfo->title;
-               }
+            //    dd($bookitems[0]->volumeInfo);
             }
             // dd($title);
-            return view('search')->with('submitSearch');
+            return view('search', ['bookitems' => $bookitems]);
         } else {
             return view('search');
         }
-            }
+    }
 }
