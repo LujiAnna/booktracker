@@ -53,14 +53,22 @@
       @endif
 
       <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background: url('{{ $item->volumeInfo->imageLinks->thumbnail ?? ''}}') no-repeat center;">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background: url('{{ $item->volumeInfo->imageLinks->thumbnail ?? ''}}') no-repeat center;" >
           <div class="d-flex flex-column h-100 p-4 pb-3 text-white text-shadow-1">
-                <h6 class="mb-5 pb-5 fw-bold text-center">{{ $item->volumeInfo->title }} </h6>
+            <h6 class="mb-5 pb-5 fw-bold text-center">{{ $item->volumeInfo->title }} </h6>
             <h2 class=" mb-4 pt-5 mt-5 display-6 lh-1 fw-bold"> </h2>
             <ul class="d-flex list-unstyled mt-auto">
               <li class="me-auto">
-                {{-- <img src="{{ $item->volumeInfo->imageLinks->smallThumbnail }}" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white"> --}}
-                <small>Authored by </span></small>
+              <a href="{{ $item->volumeInfo->infoLink }}"><img src="{{ $item->volumeInfo->imageLinks->smallThumbnail }}" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+              </a>
+               <i class="fas fa-plus-circle text-white accordion" type="button"></i>
+                {{-- <small>Authored by </span></small> --}}
+                    <div class="panel">
+                    {{-- <div class="card card-body"> --}}
+                    <p>Lorem Ipsum ..</p>
+                      {{-- <small>{{ $item->volumeInfo->description }} <small> --}}
+                    {{-- </div> --}}
+                    </div>
               </li>
               <li class="d-flex align-items-center me-3">
                 <small>{{ $item->volumeInfo->authors[0] ?? '' }}</small>
