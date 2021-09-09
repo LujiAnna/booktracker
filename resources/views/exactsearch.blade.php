@@ -3,7 +3,7 @@
 @section('content')
     <h1>Your exact search result... </h1>
 
-{{--    search bar--}}
+    {{--    search bar--}}
     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
         <div class="card mb-2">
             <div class="card-body p-2">
@@ -19,6 +19,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="card text-center bg-black">
 
             {{--                                TODO: activate collapse--}}
@@ -89,32 +91,40 @@
             </div>
         </div>
     </div>
-{{--    end search bar--}}
+    {{--    end search bar--}}
 
-{{--    book display--}}
-    <div class="container">
-        <div class="card" style="width: 18rem;">
-            <img src="#" class="card-img-top" alt="...">
-            <div class="card-body">
+    {{--    book display--}}
+    <div class="container-fluid">
+        <div class="d-flex mt-5 justify-content-center">
+            <div class="card" style="width: 450px;">
+                <img src="#" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Book title</h5>
+                    <div class="col-sm-12 text-center" style="margin:10px">
+                        <h6 class="card-subtitle text-muted">Author</h6>
+                        <h6 class="card-subtitle text-muted">Genre</h6>
+                    </div>
 
-                <h5 class="card-title">Book title</h5>
-                <div class="col-sm-6">
-                    <h6 class="card-subtitle text-muted">Author</h6>
-                    <h6 class="card-subtitle text-muted">Genre</h6>
+                    <p class="card-text text-center">This is where the book description will be displayed</p>
+                    <div class="text-center" style="margin: 10px">
+
+                        <a href="#" class="btn btn-primary" style="margin:15px">See all books from this
+                            author</a>
+                        <a href="#" class="btn btn-primary" style="margin:15px">See all books from this
+                            genre</a>
+                        <a href="#" class="btn btn-primary" style="margin:15px">Add book to my list</a>
+                    </div>
                 </div>
-
-                <p class="card-text">This is where the book description will be displayed</p>
-                <a href="#" class="btn btn-primary">See all books from this author</a>
-                <a href="#" class="btn btn-primary">See all books from this genre</a>
-                <a href="#" class="btn btn-primary">Add book to my list</a>
             </div>
         </div>
     </div>
-{{--    end book display--}}
+    {{--    end book display--}}
 
-{{--    go back to home--}}
-    <a href="home" class="btn btn-primary">Go back</a>
-{{--    end go back to home--}}
+    {{--    go back to home--}}
+    <div class="text-center" style="margin: 35px">
+        <a href="home" class="btn btn-primary">Go back</a>
+    </div>
+    {{--    end go back to home--}}
 
 
 @endsection
