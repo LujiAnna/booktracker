@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top mb-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
         <div class="container-fluid">
 {{--            <a class="navbar-brand" style="text-align: center" href="{{ route('') }}">--}}
 {{--                TBD--}}
