@@ -23,10 +23,11 @@ class SearchController extends Controller
      * @return View pages.add_book_collection
      */
 
-
     public function list(Request $request) {
+        dd('hello- this is not working');
         $bookitems = Http::get("https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=".config('services.google.key'))->json();
-        return view('search') ->with('bookitems', json_decode($bookitems, true));
+        dd($bookitems);
+        return view('search')->with('bookitems', json_decode($bookitems, true));
     }
 
     public function submitSearch(Request $request)
@@ -53,11 +54,16 @@ class SearchController extends Controller
                 // dd($bookload->items);
                 $bookitems = $bookload->items;
             //    dd($bookitems[0]->volumeInfo);
+
             }
             // dd($title);
             return view('search', ['bookitems' => $bookitems]);
         } else {
-            return view('search');
+            $response = Http::get("https://www.googleapis.com/books/v1/volumes?q=time&printType=books&key=".config('services.google.key'))->object();
+            // dd($response); // if decides to use json() method
+            // dd($response->items);
+            $bookitems = $response->items;
+            return view('search', ['bookitems' => $bookitems]);
         }
     }
 }

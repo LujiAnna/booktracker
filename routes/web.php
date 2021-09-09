@@ -12,7 +12,7 @@ Route::get('/', [Controller::class, 'index'])->name('welcome');
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
 
-Route::get('search', [SearchController::class, 'list'])->name('list');
+Route::get('search', [SearchController::class, 'list'])->name('search');
 
 
 // add slug and name with 2 variables
