@@ -13,9 +13,9 @@
                    <a class="nav-link" href="/home">My Books</a>
                   </li>
                 </ul>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search books" aria-label="Search">
-                  <a href="/search" class="btn btn-outline-primary" role="button">Search</a>
+                <form class="d-flex"  method="get" action='search'>
+                  <input class="form-control me-2" type="search" name='search' placeholder="Search books" aria-label="Search" value="">
+                  <a href="/search" class="btn btn-outline-primary" role="button" type="submit">Search</a>
                 </form>
             </div>
         </div>

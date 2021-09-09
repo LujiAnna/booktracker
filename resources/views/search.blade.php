@@ -59,7 +59,7 @@
             <h2 class=" mb-4 pt-5 mt-5 display-6 lh-1 fw-bold"> </h2>
             <ul class="d-flex list-unstyled mt-auto">
               <li class="me-auto">
-              <a href="{{ $item->volumeInfo->infoLink }}"><img src="{{ $item->volumeInfo->imageLinks->smallThumbnail }}" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+              <a href="{{ $item->volumeInfo->infoLink ?? ''}}"><img src="{{ $item->volumeInfo->imageLinks->smallThumbnail ?? ''}}" alt="img" width="32" height="32" class="rounded-circle border border-white">
               </a>
                <i class="fas fa-plus-circle text-white accordion" type="button"></i>
                     <div class="panel">
