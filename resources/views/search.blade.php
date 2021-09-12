@@ -6,14 +6,14 @@
           <div class="col-md-7 col-lg-8 mt-4">
             <h1 class="mb-3">Search</h1>
             {{-- action: route to go to controller --}}
-              <form class="jumbotron" method="get" action='search'>
+              <form class="jumbotron" method="get" action='/'>
                  @csrf
                 <div class="input-group mb-3">
                 {{-- type='search' vs type='text' --}}
                   <input class="form-control me-2" type="search" name='search' id="search" placeholder="Search by Book Title, Author, or ISBN" aria-label="Search" value="{{request('search')}}" required>
                     <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
                 </div>
-               
+
 
                 <div class="form-check form-check-inline">
                   <input id="all" name="searchMethod" type="radio" class="form-check-input" value="all" checked required>
@@ -38,6 +38,7 @@
             </div>
           </div>
 
+@if(! empty($bookitems))
   <div class="container px-4 py-5" id="custom-cards">
     <h2 class="pb-2 border-bottom ">Books</h2>
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
@@ -85,6 +86,6 @@
 
     </div>
   </div>
-        
-    
+@endif
+
 @endsection

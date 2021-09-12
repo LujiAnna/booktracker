@@ -13,7 +13,7 @@
                    <a class="nav-link" href="/home">My Books</a>
                   </li>
                 </ul>
-                <form class="d-flex"  method="get" action='/search'>
+                <form class="d-flex"  method="get" action='/'>
                   @csrf
                   <input class="form-control me-2" type="search" name='search' placeholder="Search books" aria-label="Search" value="">
                   <button class="btn btn-outline-primary" role="button" type="submit">Search</button>
