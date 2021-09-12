@@ -6,7 +6,7 @@
 {{--            </a>--}}
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar navbar-light">
-                    <a class="nav-link active" style="text-align: center" aria-current="page" href="{{ route('home') }}">Your book tracker</a>
+                    <a class="nav-link active" style="text-align: center" aria-current="page" href="{{ route('book.index') }}">Your book tracker</a>
                 </div>
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                   <li class="nav-item">
